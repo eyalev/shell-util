@@ -1,8 +1,5 @@
-# from pathlib import Path
-
 import click
 from shell_util import shell
-import subprocess
 
 
 @click.group()
@@ -14,16 +11,19 @@ def cli():
 @click.argument('command_args', nargs=-1)
 def run_command(command_args):
 
-    # print('[START]')
     command = ' '.join(command_args)
-    # print(command)
-    # result = shell.run_command(command)
+    shell.run_command(command)
 
-    # status, output = subprocess.getstatusoutput('ls')
-    result = shell.run_command(command)
-    # import pdb; pdb.set_trace()
 
-    # print('[END]')
+@cli.command()
+@click.argument('command_args', nargs=-1, required=True)
+def run_command_and_get_result_object(command_args):
+
+    command = ' '.join(command_args)
+    result = shell.run_command_and_get_shell_result(command)
+    print(result.command)
+    print(result)
+    print(result.output)
 
 
 if __name__ == '__main__':
