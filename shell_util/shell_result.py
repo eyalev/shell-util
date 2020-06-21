@@ -5,10 +5,10 @@ class ShellResult:
     STATUS_OK = 'OK'
     STATUS_ERROR = 'ERROR'
 
-    def __init__(self, status, output, command):
+    def __init__(self, shell_status, output, command):
         super().__init__()
 
-        self._status = status
+        self._shell_status = shell_status
         self._output = output
         self._command = command
 
@@ -17,8 +17,12 @@ class ShellResult:
         return output
 
     @property
+    def status(self):
+        return self.status_word
+
+    @property
     def status_int(self):
-        return self._status
+        return self._shell_status
 
     @property
     def status_word(self):

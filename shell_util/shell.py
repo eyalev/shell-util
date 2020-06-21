@@ -17,8 +17,8 @@ def run_command(command, stdout=None, in_dir=None):
 def run_command_and_get_shell_result(command):
 
     command_split = shlex.split(command)
-    status, output = _get_status_and_output(command_split)
-    shell_result = ShellResult(status, output, command)
+    shell_status, output = _get_status_and_output(command_split)
+    shell_result = ShellResult(shell_status, output, command)
 
     return shell_result
 
