@@ -23,6 +23,7 @@ def run_command_and_return_result_object(command):
     return shell_result
 
 
+# Deprecated
 run_command_and_get_shell_result = run_command_and_return_result_object
 
 

@@ -20,7 +20,7 @@ def run_command(command_args):
 def run_command_and_get_result_object(command_args):
 
     command = ' '.join(command_args)
-    result = shell.run_command_and_get_shell_result(command)
+    result = shell.run_command_and_return_result_object(command)
     print(result.command)
     print(result)
     print(result.output)
