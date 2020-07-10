@@ -14,13 +14,16 @@ def run_command(command, stdout=None, in_dir=None):
     return result
 
 
-def run_command_and_get_shell_result(command):
+def run_command_and_return_result_object(command):
 
     command_split = shlex.split(command)
     shell_status, output = _get_status_and_output(command_split)
     shell_result = ShellResult(shell_status, output, command)
 
     return shell_result
+
+
+run_command_and_get_shell_result = run_command_and_return_result_object
 
 
 def _get_status_and_output(command_split):
