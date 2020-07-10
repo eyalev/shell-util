@@ -14,6 +14,9 @@ def run_command(command, stdout=None, in_dir=None):
     return result
 
 
+run_command_sync = run_command
+
+
 def run_command_and_return_result_object(command):
 
     command_split = shlex.split(command)
